@@ -1,0 +1,17 @@
+end_lst = re.split('\D+', end_date)
+            if end_lst[0] == '':
+                end_lst = end_lst[1:]
+            start_year = int(end_lst[0])
+            start_month = int(end_lst[1])
+            start_day = int(end_lst[2])
+            if start_year < 1900 or start_year > 2200:
+                print(f"ValueError: start_year({start_year:d}) is wrong.")
+                return
+            if start_month < 1 or start_month > 12:
+                print(f"ValueError: start_month({start_month:d}) is wrong.")
+                return
+            if start_day < 1 or start_day > 31:
+                print(f"ValueError: start_day({start_day:d}) is wrong.")
+                return
+            #분리된 연, 월, 일을 다시 다음과 같은 형식으로 구성하면 DB에 저장된 날짜 형식과 같게된다.
+            end_date = f"{start_year:04d}-{start_month:02d}-{start_day:02d}"
